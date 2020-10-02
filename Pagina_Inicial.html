@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        h1{
+            padding: 5px;
+        }
+
+      
+        .containerColumn {
+            background-color: #007abc;
+            height: 90vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .containerColumnReverse {
+            background-color: #007abc;
+            height: 90vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .containerRow {
+            background-color: #007abc;
+            height: 90vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .containerRowReverse {
+            background-color: #007abc;
+            height: 90vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        .item {
+            background-color: #555;
+            height: 50;
+            width: 50;
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 50px;
+        }
+
+
+        button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+
+          
+           
+            justify-content: center;
+            align-items: center;
+           
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div id="container1" class="containerRow">
+
+        <h1 style="display: block;">Hora</h1>
+        <h1 style="display: block;">Certa</h1>
+
+        <div id="hours" class="item item1"></div>
+        <div id="hours" class="item item1">:</div>
+        <div id="minutes" class="item item2"></div>
+        <div id="hours" class="item item3">:</div>
+        <div id="seconds" class="item item3"></div>
+        <div id="demo"></div>
+    </div>
+
+
+    <button onclick="containerRow()" style="background-color: #4CAF50;">Row</button>
+    <button onclick="containerColumn()" style="background-color: #008CBA;">Column</button>
+    <button onclick="containerRowReverse()" style="background-color: #f44336;">RowReverse</button>
+    <button onclick="containerColumnReverse()" 
+    style="background-color:#e7e7e7; color: black;">ColumnReverse</button>
+</body>
+
+</body>
+
+
+
+<script type="text/javascript">
+
+
+    function removerClasses() {
+        document.getElementById("container1").classList.remove('containerRow');
+        document.getElementById("container1").classList.remove('containerColumn');
+        document.getElementById("container1").classList.remove('containerRowReverse');
+        document.getElementById("container1").classList.remove('containerColumnReverse');
+
+    }
+
+    function containerRow() {
+        removerClasses();
+        document.getElementById("container1").classList.add('containerRow');
+    }
+
+    function containerColumn() {
+        removerClasses();
+        document.getElementById("container1").classList.add('containerColumn');
+    }
+
+    function containerRowReverse() {
+        removerClasses();
+        document.getElementById("container1").classList.add('containerRowReverse');
+    }
+
+    function containerColumnReverse() {
+        removerClasses();
+        document.getElementById("container1").classList.add('containerColumnReverse');
+    }
+
+    containerColumnReverse
+
+
+    const zeroFill = n => {
+        return ('0' + n).slice(-2);
+    }
+
+    var myVar = setInterval(myTimer, 1000);
+    function myTimer() {
+        var d = new Date();
+
+        var hrs = d.getHours();
+        var minutes = d.getMinutes();
+        var seconds = d.getSeconds();
+
+
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+            displayDate = d.toLocaleTimeString('pt-BR');
+        } else {
+            displayDate = d.toLocaleTimeString('pt-BR', { timeZone: 'America/Belem' });
+        }
+        document.getElementById("hours").innerHTML = zeroFill(hrs);
+        document.getElementById("minutes").innerHTML = zeroFill(minutes);
+        document.getElementById("seconds").innerHTML = zeroFill(seconds);
+    }
+
+</script>
+
+</html>
